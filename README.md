@@ -1,2 +1,2 @@
 # chatNode
-Un chat como telegram, pero hecho por mi :) con Node
+Un chat como telegram, pero hecho por mi :)
