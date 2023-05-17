@@ -1,25 +1,27 @@
 import express from "express";
-import { success, error } from "../../network/response.js";
-import { addMessage } from "./controller.js";
+import { response } from "../../network/response.js";
+import { controller } from "./controller.js";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    console.log(req.headers);
-    res.header({
-        "custom-header": "Our personal value"
-    });
-	success(req, res, "list of message");
+    controller.getMessages()
+        .then(messageList => {
+            response.success(req, res, messageList, 200);
+        })
+        .catch(error => {
+            response.error(req, res, "Unexpected Error", 500, error);
+        });
 });
 
 router.post("/", (req, res) => {
     
-    addMessage(req.body.user, req.body.message)
+    controller.addMessage(req.body.user, req.body.message)
         .then(fullMessage => {
-            success(req, res, fullMessage, 201);
+            response.success(req, res, fullMessage, 201);
         })
         .catch(() => {
-            error(req, res, "Unexpected data", 400, "Error in the controller");
+            response.error(req, res, "Unexpected data", 400, "Error in the controller");
         });
 });
 

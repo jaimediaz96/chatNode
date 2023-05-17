@@ -1,3 +1,4 @@
+import { store } from "./store.js";
 
 function addMessage(user, message) {
     return new Promise ((resolve, reject) => {
@@ -5,13 +6,26 @@ function addMessage(user, message) {
             console.error("[messageController] No user or message");
             reject("The data is wrong");
         }
+
         const fullMessage = {
             user,
             message,
             date: new Date()
         };
+
+        store.add(fullMessage);
+
         resolve(fullMessage);
     });
 }
 
-export { addMessage }
+function getMessages(user, message) {
+    return new Promise((resolve, reject) => {
+        resolve(store.list());
+    });
+}
+
+export const controller = {
+    addMessage,
+    getMessages
+}
