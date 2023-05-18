@@ -1,5 +1,8 @@
 import express from "express";
+import { connect } from "./db.js"
 import { routes } from "./network/routes.js";
+
+connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@mongodblab.f94tuty.mongodb.net/`);
 
 const app = express();
 
