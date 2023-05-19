@@ -45,4 +45,6 @@ router.delete("/:id", (req, res) => {
         });
 });
 
-export { router }
+const message = router;
+
+export { message }

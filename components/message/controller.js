@@ -29,7 +29,7 @@ function updateMessage(id, message) {
     return new Promise(async (resolve, reject) => {
         if (!id || !message) reject("Invalid data");
 
-        const result = await store.updateText(id, message);
+        const result = await store.update(id, message);
 
         resolve(result);
     });
@@ -39,7 +39,7 @@ function deleteMessage(id) {
     return new Promise((resolve, reject) => {
         if (!id) reject("Invalid id");
 
-        const result = store.remove(id)
+        const result = store.delete(id)
             .then(() => {
                 resolve();
             })

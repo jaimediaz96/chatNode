@@ -12,7 +12,7 @@ async function getMessage(filterUser) {
     return messages;
 }
 
-async function updateText(id, message) {
+async function updateMessage(id, message) {
     const foundMessage = await model.findById(id);
 
     foundMessage.message = message;
@@ -22,13 +22,13 @@ async function updateText(id, message) {
     return newMessage;
 }
 
-function remove(id) {
+function deleteMessage(id) {
     return model.findByIdAndDelete(id);
 }
 
 export const store = {
     add: addMessage,
     list: getMessage,
-    updateText,
-    remove
+    update: updateMessage,
+    delete: deleteMessage
 }
