@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
     controller.addUser(req.body.name)
-        .then(name => {
-            response.success(req, res, name, 201);
+        .then(user => {
+            response.success(req, res, user, 201);
         })
         .catch(error => {
             response.error(req, res, "Invalid name", 500, error);

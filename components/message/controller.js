@@ -1,16 +1,24 @@
 import { store } from "./store.js";
 
-function addMessage(user, message) {
+function addMessage(chat, user, message, file) {
     return new Promise ((resolve, reject) => {
         if (!user || !message) {
             console.error("[messageController] No user or message");
             reject("The data is wrong");
         }
 
+        const fileUrl = file ? 
+            "http://localhost:3000/app/files/" + file.filename
+            : "";
+
+        console.log(fileUrl);
+
         const fullMessage = {
+            chat,
             user,
             message,
-            date: new Date()
+            date: new Date(),
+            file: fileUrl
         };
 
         store.add(fullMessage);
