@@ -27,4 +27,4 @@ router.post("/", (req, res) => {
 
 const chat = router;
 
-export { chat }
+export { chat };

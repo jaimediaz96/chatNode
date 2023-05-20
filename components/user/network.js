@@ -46,4 +46,4 @@ router.delete("/:id", (req, res) => {
 
 const user = router ;
 
-export { user }
+export { user };

@@ -35,4 +35,4 @@ export const store = {
     list: getMessage,
     update: updateMessage,
     delete: deleteMessage
-}
+};

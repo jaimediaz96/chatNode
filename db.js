@@ -17,4 +17,4 @@ async function connect(url) {
     console.log("[db] Conectada con éxito");
 }
 
-export { connect }
+export { connect };

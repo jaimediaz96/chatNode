@@ -1,4 +1,5 @@
 import { store } from "./store.js";
+import { socket } from "../../socket.js";
 
 function addMessage(chat, user, message, file) {
     return new Promise ((resolve, reject) => {
@@ -11,8 +12,6 @@ function addMessage(chat, user, message, file) {
             "http://localhost:3000/app/files/" + file.filename
             : "";
 
-        console.log(fileUrl);
-
         const fullMessage = {
             chat,
             user,
@@ -22,6 +21,8 @@ function addMessage(chat, user, message, file) {
         };
 
         store.add(fullMessage);
+
+        socket.io.emit("message", fullMessage);
 
         resolve(fullMessage);
     });
@@ -62,4 +63,4 @@ export const controller = {
     getMessages,
     updateMessage,
     deleteMessage
-}
+};

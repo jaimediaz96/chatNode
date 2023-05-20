@@ -11,4 +11,4 @@ const mySchema = new Schema({
 
 const model = mongoose.model("chat", mySchema);
 
-export { model }
+export { model };

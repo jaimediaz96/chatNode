@@ -21,7 +21,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", upload.single("file"), (req, res) => {
-    console.log(req.file);
     controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file)
         .then(fullMessage => {
             response.success(req, res, fullMessage, 201);
@@ -53,4 +52,4 @@ router.delete("/:id", (req, res) => {
 
 const message = router;
 
-export { message }
+export { message };

@@ -9,4 +9,4 @@ const routes = server => {
     server.use("/chat", chat);
 };
 
-export { routes }
+export { routes };

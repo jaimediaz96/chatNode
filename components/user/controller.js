@@ -32,4 +32,4 @@ export const controller = {
     listUsers,
     updateUser,
     deleteUser
-}
+};

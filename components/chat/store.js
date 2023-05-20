@@ -19,4 +19,4 @@ function getChat(filterChat) {
 export const store = {
     add: addChat,
     list: getChat
-}
+};

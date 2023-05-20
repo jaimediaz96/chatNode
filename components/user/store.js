@@ -28,4 +28,4 @@ export const store = {
     list: getUser,
     update: updateUser,
     delete: deleteUser
-}
+};

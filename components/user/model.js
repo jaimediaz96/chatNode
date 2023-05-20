@@ -8,4 +8,4 @@ const mySchema = new Schema({
 
 const model = mongoose.model("user", mySchema);
 
-export { model }
+export { model };

@@ -13,4 +13,4 @@ function error(req, res, message, status, details) {
     });
 }
 
-export const response = { success, error }
+export const response = { success, error };

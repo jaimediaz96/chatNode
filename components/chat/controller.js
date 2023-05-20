@@ -17,4 +17,4 @@ function getChat(filterChat) {
 export const controller = {
     addChat,
     getChat
-}
+};
